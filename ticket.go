@@ -1,6 +1,6 @@
 package ticket
 
-func Price(age uint) float64 {
+func Price(age int) float64 {
 	if age <= 3 {
 		return 0
 	}
