@@ -2,21 +2,19 @@ package ticket
 
 import "testing"
 
-// เอา Struct ออกมาด้านนอก แล้วสร้างตัวแปรเป็น Case
-type Case struct {
-	name string
-	age  int
-	want float64
-}
-
 func TestTicketPrice(t *testing.T) {
-	t1 := Case{name: "Free ticket when age is 0", age: 0, want: 0.0}
-	t2 := Case{"Free ticket when age is under 3", 3, 0.0}
-	t3 := Case{"Ticket is $15 when age is 4", 4, 15.0}
-	tests := []Case{
-		t1,
-		t2,
-		t3,
+	tests := []struct {
+		name string
+		age  int
+		want float64
+	}{
+		{"Free ticket when age is 0", 0, 0.0},
+		{"Free ticket when age is under 3", 3, 0.0},
+		{"Ticket is $15 when age is 4", 4, 15.0},
+		{"Ticket is $15 when age is 15", 15, 15.0},
+		{"Ticket is $30 when age over 15", 16, 30.0},
+		{"Ticket is $30 when age is 50", 50, 30.0},
+		{"Ticket is $5 when age is over 50", 51, 5.0},
 	}
 
 	for _, tt := range tests {
