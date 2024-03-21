@@ -27,4 +27,5 @@ func TestTicketPrice(t *testing.T) {
 		})
 	}
 	//test ให้พี่นิกกับพี่ตั้มดู 
+	//พี่เจหล่อจังเลย
 }
